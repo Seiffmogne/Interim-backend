@@ -5,7 +5,7 @@ require('./startup/prod')(app);
 
 
 app.get('/',(req,res)=>{
-res.send("True");
+res.send("This is the new app.");
 });
 
 const port =process.env.PORT || 3000;
