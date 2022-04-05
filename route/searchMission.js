@@ -27,7 +27,7 @@ router.get('/',asyncMiddleware(async(req,res)=>{
    const searchLocation=req.query.zipCode;
 
    if(searchString){
-     const sarchMission= await Mission.find({name:{$regex:searchString,$options:'i'}})
+     const sarchMission= await Mission.find({'category.name':{$regex:searchString,$options:'i'}})
      .sort({date:-1});
      res.send(sarchMission);
    }
@@ -38,7 +38,7 @@ router.get('/',asyncMiddleware(async(req,res)=>{
    }
    else if(searchLocation && searchString){
      const theMissionSearch=await Mission.find()
-     .or([{name:searchString},{'useruserCreateMission.zipCode':searchLocation}])
+     .or([{'category.name':searchString},{'useruserCreateMission.zipCode':searchLocation}])
      .sort({date:-1});;
      res.send(theMissionSearch);
    }

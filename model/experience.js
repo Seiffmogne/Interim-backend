@@ -56,8 +56,7 @@ actualJob:{
           type:String,
           required:true,
           minlength:5,
-          maxlength:255,
-          unique: true
+          maxlength:255
       },
       phoneNumber:{
           type:String,

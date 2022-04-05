@@ -44,7 +44,6 @@ router.post('/',auth,async(req,res)=>{
            let usermission=new userMission({
         mission:{
            _id:mission._id,
-           name:mission.name,
            details:mission.details,
            time:mission.time,
            nmbreJour:mission.nmbreJour,
@@ -84,6 +83,7 @@ router.post('/',auth,async(req,res)=>{
 
     //Use mailgun to send the email .
       sendMail(usermission.mission.userCreateMission.email,'Mission Accepté',writeHtml);
+    
     await session.commitTransaction();
     session.endSession();
               

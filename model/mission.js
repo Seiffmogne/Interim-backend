@@ -5,17 +5,11 @@ const Schema= mongoose.Schema;
 
 
 const missionSchema= new Schema({
-name:{
-    type:String,
-    required:true,
-    minlength:5,
-    maxlength:255
-},
 details:{
     type:String,
-    minlength:10,
+    minlength:0,
     maxlength:1024,
-    required:true
+
 },
 time:{
     required:true,
@@ -126,8 +120,7 @@ const Mission= mongoose.model('Mission',missionSchema);
 
 function validateMision(mission){
    const schema= Joi.object({
-     name: Joi.string().min(5).max(255).required(),
-     details:Joi.string().min(10).max(1024).required(),
+     details:Joi.string().min(0).max(1024).allow('').optional(),
      time:Joi.number().min(1).max(200).required(),
      nmbreJour:Joi.number().min(1).max(200).required(),
      availableForPersonn:Joi.number().min(0).max(255).required(),
