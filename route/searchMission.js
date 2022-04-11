@@ -43,7 +43,6 @@ router.get('/',asyncMiddleware(async(req,res)=>{
      res.send(theMissionSearch);
    }
 
-
  
    
 

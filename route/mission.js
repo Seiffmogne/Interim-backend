@@ -48,6 +48,7 @@ if (error) return res.status(400).send(error.details[0].message);
 
 const auser= await User.findById(req.body.userId);
 if(!auser) return res.status(400).send('Invalid User');
+if(!auser.isVerified) return res.status(400).send('Vous devez faire vérifier votre adresse mail.');
 
 const category= await Categ.findById(req.body.categoryId);
 if(!category) return res.status(400).send(`La catégory n'existe pas.`);
