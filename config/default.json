@@ -1,4 +1,4 @@
 {
     "jwtPrivateKey":"",
-    "db":"mongodb://localhost/interim"
+    "db":"mongodb+srv://Seiff133:cRk97FTEGANlXgn6@cluster0.skgjh.mongodb.net/interim?retryWrites=true&w=majority"
 }

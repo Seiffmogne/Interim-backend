@@ -23,6 +23,7 @@ app.use(cors());
 
 winston.add(new winston.transports.File({filename:'logfile.log'}));
 
+
 require('./startup/prod')(app);
 require('./startup/db')();
 require('./startup/config')();
@@ -33,6 +34,7 @@ require('./startup/route')(app);
 const port =process.env.PORT || 3000;
 const LOCAL_ADRESS='0.0.0.0';
 
-app.listen(port,LOCAL_ADRESS, ()=>{
+const server=app.listen(port,LOCAL_ADRESS, ()=>{
     console.log(`Listening on Port ${port} ...`);
 });
+module.exports=server;
